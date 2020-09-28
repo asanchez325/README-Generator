@@ -1,8 +1,11 @@
 // External packages
-const fs = require("fs");
-const util = require("util");
-const inquirer = require("inquirer");
-const generateMarkdown = require("util")
+const inquirer = require('inquirer');
+const fs = require('fs');
+const util = require('util');
+
+// Internal modules
+const api = require('./utils/api.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 
 // array of questions for user
@@ -61,21 +64,33 @@ const questions = [
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {
-}
+const writeFileAsync = util.promisify(writeToFile);
 
-// Async function using util.promisify 
+
+// Main function
 async function init() {
     try {
-        // Ask user questions and generate responses
-        const answers = await promptUser();
-        const generateContent = generateReadme(answers);
-        // Write new README.md to dist directory
-        await writeFileAsync('./dist/README.md', generateContent);
-        console.log('✔️  Successfully wrote to README.md');
-    }   catch(err) {
-        console.log(err);
+
+        // Prompt Inquirer questions
+        const userResponses = await inquirer.prompt(questions);
+        console.log("Your responses: ", userResponses);
+        console.log("Thank you for your responses! Fetching your GitHub data next...");
+    
+        // Call GitHub api for user info
+        const userInfo = await api.getUser(userResponses);
+        console.log("Your GitHub user info: ", userInfo);
+    
+        // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
+        console.log("Generating your README next...")
+        const markdown = generateMarkdown(userResponses, userInfo);
+        console.log(markdown);
+    
+        // Write markdown to file
+        await writeFileAsync('ExampleREADME.md', markdown);
+
+    } catch (error) {
+        console.log(error);
     }
-  }
-  
-  init();  
+};
+
+init(); 
