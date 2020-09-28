@@ -28,9 +28,8 @@ Clone the github respository-> insert repo info->activate node js-> fill out pro
 ## Usage 
 
 *Instructions and, if applicable, examples for use.:*
-
-
 Via node js
+![Alt text for your video](https://drive.google.com/file/d/1A9XhwivEVUkercLYY3ok-9-cUUaOdm3a/view "View Usage Video!")
 ---
 
 ## Tests
