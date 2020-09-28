@@ -28,7 +28,7 @@ Clone the github respository-> insert repo info->activate node js-> fill out pro
 ## Usage 
 
 *Instructions and, if applicable, examples for use.:*
-https://drive.google.com/file/d/1A9XhwivEVUkercLYY3ok-9-cUUaOdm3a/view
+
 
 Via node js
 ---
