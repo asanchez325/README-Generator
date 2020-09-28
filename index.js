@@ -10,6 +10,16 @@ const api = require('./utils/api')
 
 // array of questions for user
 const questions = [
+    {
+        type: 'input',
+        message: "What is your GitHub username? (No @ needed)",
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: "What is the name of your GitHub repo?",
+        name: 'repo',
+    },
     {   
         type: 'input',
         message: "What is the title of your project?",
@@ -87,6 +97,8 @@ async function init() {
         console.log("Thank you for your responses! Fetching your GitHub data next...");
     
         // Call GitHub api for user info const userInfo = await api.getUser(userResponses); console.log("Your GitHub user info: ", userInfo);
+        const userInfo = await api.getUser(userResponses);
+        console.log("Your GitHub user info: ", userInfo);
     
         // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
         console.log("Generating your README next...")
