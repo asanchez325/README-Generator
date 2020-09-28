@@ -1,6 +1,6 @@
 // function to generate markdown for README
 function generateMarkdown(userResponses, userInfo) {
-// Generate Table of Contents conditionally based on userResponses
+// Generate Table of Contents
 let draftToC = `## Table of Contents`;
 
 if (userResponses.installation !== '') { draftToC += `
@@ -62,7 +62,7 @@ draftMarkdown +=
 
 ## Usage 
 
-*Instructions and examples for use:*
+*Provide instructions and examples for use.:*
 
 ${userResponses.usage}`
 };
@@ -74,7 +74,7 @@ if (userResponses.contributing !== '') {
 
 ## Contributing
 
-*If you would like to contribute it, you can follow these guidelines for how to do so.*
+*If you would like to contribute to this project, you can follow these guidelines for how to do so.*
 
 ${userResponses.contributing}`
 };
@@ -111,19 +111,14 @@ let draftDev =
 
 ## Questions?
 
-![Developer Profile Picture](${userInfo.avatar_url}) 
-
 For any questions, please contact me with the information below:
 
 GitHub: [@${userInfo.login}](${userInfo.url})
 `;
 
-// If GitHub email is not null, add to Developer section
-if (userInfo.email !== null) {
 
 draftDev +=
 `
-Email: ${userInfo.email}
 `};
 
 // Add developer section to markdown
