@@ -28,7 +28,7 @@ Clone the github respository-> insert repo info->activate node js-> fill out pro
 ## Usage 
 
 *Instructions and, if applicable, examples for use.:*
-![alt preview](assets/videos/readme.GIF) 
+![alt preview](assets/videos/readme.gif) 
 
 Via node js
 ---
