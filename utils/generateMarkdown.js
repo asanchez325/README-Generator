@@ -23,10 +23,11 @@ let draftMarkdown =
 
 Check out the badges hosted by [shields.io](https://shields.io/).
 
+---
 
 ## Description 
 
-*The what, why, and how:* 
+*Description of the project; including the what, the why and the how:* 
 
 ${userResponses.description}
 `
@@ -44,10 +45,11 @@ if (userResponses.installation !== '') {
 
 draftMarkdown +=
 `
+---
 
 ## Installation
 
-*Steps required to install project and how to get the development environment running:*
+*Instructions required to install and run the project:*
 
 ${userResponses.installation}`
 };
@@ -59,10 +61,11 @@ if (userResponses.usage !== '') {
 draftMarkdown +=
 
 `
+---
 
 ## Usage 
 
-*Provide instructions and examples for use.:*
+*Instructions and, if applicable, examples for use.:*
 
 ${userResponses.usage}`
 };
@@ -71,10 +74,11 @@ ${userResponses.usage}`
 // Optional Contributing section
 if (userResponses.contributing !== '') {
 `
+---
 
 ## Contributing
 
-*If you would like to contribute to this project, you can follow these guidelines for how to do so.*
+*Follow these guidelines if you would like to contribute:*
 
 ${userResponses.contributing}`
 };
@@ -85,10 +89,11 @@ if (userResponses.tests !== '') {
 
 draftMarkdown +=
 `
+---
 
 ## Tests
 
-*Tests for application and how to run them:*
+*Tests used and how they are ran:*
 
 ${userResponses.tests}`
 };
@@ -97,6 +102,7 @@ ${userResponses.tests}`
 // License section is required
 draftMarkdown +=
 `
+---
 
 ## License
 
