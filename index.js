@@ -4,8 +4,8 @@ const fs = require('fs');
 const util = require('util');
 
 // Internal modules
-const api = require('./utils/api.js');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const api = require('./utils/api')
 
 
 // array of questions for user
@@ -63,6 +63,16 @@ const questions = [
 
 ];
 
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+          return console.log(err);
+        }
+      
+        console.log("Success! Your README.md file has been generated")
+    });
+}
+
 // function to write README file
 const writeFileAsync = util.promisify(writeToFile);
 
@@ -76,9 +86,7 @@ async function init() {
         console.log("Your responses: ", userResponses);
         console.log("Thank you for your responses! Fetching your GitHub data next...");
     
-        // Call GitHub api for user info
-        const userInfo = await api.getUser(userResponses);
-        console.log("Your GitHub user info: ", userInfo);
+        // Call GitHub api for user info const userInfo = await api.getUser(userResponses); console.log("Your GitHub user info: ", userInfo);
     
         // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
         console.log("Generating your README next...")
