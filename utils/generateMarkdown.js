@@ -118,15 +118,12 @@ GitHub: [@${userInfo.login}](${userInfo.url})
 
 
 draftDev +=
-`
-`};
 
 // Add developer section to markdown
 draftMarkdown += draftDev;
 
 // Return markdown
 return draftMarkdown;
-
 }
 
 module.exports = generateMarkdown;
